@@ -1,6 +1,5 @@
 # Patrones
-Implementaremos un sistema de reproducción de medios que utiliza los patrones de diseño Adapter, State y Abstract Factory.<br>
-El problema que hace posible la creación de este código es la necesidad de crear un sistema de reproducción de medios que sea flexible y extensible.
+Simularemos un sistema de almacenamiento que incluye dispositivos de almacenamiento USB y discos duros, así como archivos y estados de almacenamiento, para ello utilizaremos los patrones de diseño Adapter, State y Abstract Factory. <br>
 
 ## State:
 El patrón State se emplea para representar objetos que tienen la capacidad de modificar su comportamiento en respuesta a cambios en su estado interno, lo que posibilita que un objeto ajuste su forma de actuar cuando su estado cambia. Su uso consiste cuando tienes un objeto que puede tener diferentes estados y deseas que responda de manera diferente según su estado actual,  lo que previene la necesidad de utilizar múltiples construcciones condicionales, como sentencias if o switch para manejar diferentes comportamientos según el estado.
