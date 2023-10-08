@@ -3,7 +3,7 @@ class MusicPlayer implements MediaPlayer {
     private State state;
 
     public MusicPlayer() {
-        state = new StoppedState();
+        state = new StoppedState(this);
     }
 
     @Override
@@ -26,7 +26,7 @@ class MusicPlayer implements MediaPlayer {
         return state;
     }
 
-    public void setState(State newState) {
+    public void changeState(State newState) {
         state = newState;
     }
 }

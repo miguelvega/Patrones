@@ -1,7 +1,12 @@
 class PausedState implements State {
+    MediaPlayer player;
+    public PausedState(MediaPlayer player) {
+        this.player = player;
+    }
     @Override
     public void play() {
         System.out.println("Reanudando la reproducción");
+        player.changeState(new PlayingState(player));
     }
 
     @Override
@@ -12,5 +17,6 @@ class PausedState implements State {
     @Override
     public void stop() {
         System.out.println("Deteniendo la reproducción");
+        player.changeState(new StoppedState(player));
     }
 }

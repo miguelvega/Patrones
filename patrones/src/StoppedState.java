@@ -1,7 +1,12 @@
 class StoppedState implements State {
+    MediaPlayer player;
+    public StoppedState(MediaPlayer player) {
+        this.player = player;
+    }
     @Override
     public void play() {
         System.out.println("Iniciando la reproducción");
+        player.changeState(new PlayingState(player));
     }
 
     @Override

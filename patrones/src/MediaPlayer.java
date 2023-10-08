@@ -7,4 +7,5 @@ interface MediaPlayer {
     void stop();
 
     State getState();
+    void changeState(State newState);
 }

@@ -1,25 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        // Crear una fábrica de reproductores de música
-        MediaFactory musicFactory = new MusicFactory();
-        MediaPlayer musicPlayer = musicFactory.createMediaPlayer();
-
-        // Crear una fábrica de reproductores de video
-        MediaFactory videoFactory = new VideoFactory();
-        MediaPlayer videoPlayer = videoFactory.createMediaPlayer();
+        // Crear una instancia de AudioPlayerAdapter
+        SpanishMusicPlayerAdapter spanishMusicPlayerAdapter = new SpanishMusicPlayerAdapter();
 
         // Reproducir música
         System.out.println("Reproduciendo música:");
-        musicPlayer.play();
-        musicPlayer.pause();
-        musicPlayer.play();
-        musicPlayer.stop();
+        spanishMusicPlayerAdapter.reproducir();
+        spanishMusicPlayerAdapter.pausar();
+        spanishMusicPlayerAdapter.reproducir();
+        spanishMusicPlayerAdapter.detener();
+        spanishMusicPlayerAdapter.pausar();
 
-        // Reproducir video
-        System.out.println("\nReproduciendo video:");
-        videoPlayer.play();
-        videoPlayer.pause();
-        videoPlayer.play();
-        videoPlayer.stop();
+        // Reproducir audio específico utilizando el método adicional
+        System.out.println("\nReproduciendo archivo de audio:");
+        spanishMusicPlayerAdapter.playAudio("cancion.mp3");
+
+        // Obtener el estado actual
+        State currentState = spanishMusicPlayerAdapter.obtenerEstado();
+        System.out.println("Estado actual: " + currentState.getClass().getSimpleName());
     }
 }
