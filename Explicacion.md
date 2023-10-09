@@ -13,13 +13,16 @@ Las clases EstadoAlmacenamiento, EstadoApagado y EstadoEncendido representan los
 El patrón Adapter se utiliza cuando necesitas que dos interfaces incompatibles trabajen juntas. Actúa como un puente entre dos interfaces para que puedan colaborar sin problemas. Su uso consiste cuando deseas integrar una clase o componente existente en tu sistema que tiene una interfaz incompatible con la que necesitas en tu código. También se usa para reutilizar una clase existente que no se ajusta a la interfaz requerida. Por ejemplo, imaginemos que tenemos una clase A con una interfaz específica, pero necesitas utilizarla en un contexto donde solo se acepta una interfaz diferente, como B. En este caso, puedes crear un adaptador que implemente la interfaz B y que internamente utilice instancias de la clase A, adaptando sus métodos para que sean compatibles con la interfaz B.
 
 ### En el codigo
-
-ArchivoAdapter se utiliza para adaptar la interfaz de las clases de archivos (PdfArchivo y WordArchivo) para que puedan funcionar con el método nombre y to_s que se espera en otros lugares del código.
+- CakeOrderState es la interfaz que declara un método process_order.
+- PendingState, InProcessState y DeliveredState son estados concretos que implementan process_order para cambiar el estado del pedido.
+- CakeOrder es la clase que utiliza el patrón State, inicializa su estado como PendingState y tiene un método process_order que delega al estado actual.
 
 
 ### Abstract Factory:
-El patrón Abstract Factory ofrece una interfaz para construir conjuntos de objetos relacionados sin la necesidad de definir explícitamente las clases específicas involucradas. Esto habilita al cliente para generar objetos sin requerir un conocimiento detallado sobre la implementación concreta de cada uno. Su uso consisye cuando necesitas crear objetos que pertenecen a una familia de productos relacionados y deseas que estos objetos sean coherentes entre sí. También se usa cuando quieres aislar el código cliente de las clases concretas, lo que facilita la sustitución de una familia de objetos por otra sin modificar el código del cliente. Por ejemplo, en nuestro codigo.
+El patrón Abstract Factory ofrece una interfaz para construir conjuntos de objetos relacionados sin la necesidad de definir explícitamente las clases específicas involucradas. Esto habilita al cliente para generar objetos sin requerir un conocimiento detallado sobre la implementación concreta de cada uno. Su uso consiste cuando necesitas crear objetos que pertenecen a una familia de productos relacionados y deseas que estos objetos sean coherentes entre sí. También se usa cuando quieres aislar el código cliente de las clases concretas, lo que facilita la sustitución de una familia de objetos por otra sin modificar el código del cliente. Por ejemplo, en nuestro codigo.
 
 ### En el codigo
 
-ArchivoFactory es una clase abstracta que define el método create_archivo. Las clases concretas PdfArchivoFactory y WordArchivoFactory son subclases de ArchivoFactory que implementan este método para crear instancias de archivos PDF y Word, respectivamente.
+- CakeFactory es la interfaz abstracta para la fábrica de pasteles, que declara un método create_cake.
+- ChocolateCakeFactory y StrawberryCakeFactory son las fábricas concretas que implementan create_cake para crear pasteles de chocolate y fresa, respectivamente.
+- Cake, ChocolateCake, y StrawberryCake son las clases relacionadas que representan los objetos que se crearán mediante la fábrica.
